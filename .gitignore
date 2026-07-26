@@ -1,0 +1,62 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.claude
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Despliegue (Vercel)
+.vercel
+
+# Basura del SO (Windows / macOS)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Cachés de tooling
+*.tsbuildinfo
+.eslintcache
+
+# Skills de agentes / herramientas de desarrollo (no forman parte del sitio)
+.agents/
+skills-lock.json
+
+# Artefactos de impeccable (documentación de proceso, no se publican)
+.impeccable/
+DESIGN.md
+PRODUCT.md
+
+# Guía de colaboración interna (referencia del equipo, no se publica)
+GUIA-COLABORACION.md
+
+# Respaldo de imagenes originales sin optimizar (no subir)
+.asset-backup/
+
+# Documentos internos de diagnóstico/correcciones de rendimiento (no se publican)
+docs/diagnostico.md
+docs/correcciones.md
+docs/Observaciones Página web.md
