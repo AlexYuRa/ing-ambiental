@@ -5,7 +5,9 @@ import CurriculumVersionSwitch from '../../components/academico/CurriculumVersio
 import EnConstruccion from '../../components/layout/EnConstruccion';
 
 export default function PlanEstudios() {
-  const [version, setVersion] = useState('2027');
+  // El plan vigente es el 2018 (ver historia.hitos): por defecto se abre ahí,
+  // no en "2027" (que todavía no existe como plan real).
+  const [version, setVersion] = useState('2018');
 
   return (
     <div className="bg-white py-16 md:py-20">

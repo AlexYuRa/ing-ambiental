@@ -11,7 +11,9 @@ import EnConstruccion from '../../components/layout/EnConstruccion';
  * contenido existente de cada perfil.
  */
 export default function Perfiles() {
-  const [version, setVersion] = useState('2027');
+  // El plan vigente es el 2018 (ver historia.hitos): por defecto se abre ahí,
+  // no en "2027" (que todavía no existe como plan real).
+  const [version, setVersion] = useState('2018');
 
   return (
     <>

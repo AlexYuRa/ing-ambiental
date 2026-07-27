@@ -29,6 +29,7 @@ const OrganizacionIndex = lazy(() => import('../pages/organizacion/index'));
 const OrganizacionDireccion = lazy(() => import('../pages/organizacion/Direccion')); // escuela + departamento
 const OrganosGobierno = lazy(() => import('../pages/organizacion/OrganosGobierno')); // consejo de facultad + consejeros + representantes
 const Comites = lazy(() => import('../pages/organizacion/Comites'));                 // los 5 comités
+const Administrativos = lazy(() => import('../pages/organizacion/Administrativos'));
 
 // Módulo: Académico
 const AcademicoIndex = lazy(() => import('../pages/academico/index'));
@@ -89,7 +90,7 @@ export default function AppRouter() {
               <Route path="direccion" element={<OrganizacionDireccion />} />
               <Route path="organos-gobierno" element={<OrganosGobierno />} />
               <Route path="docentes" element={<Docentes />} />
-              <Route path="administrativos" element={<EnConstruccion titulo="Administrativos" />} />
+              <Route path="administrativos" element={<Administrativos />} />
               <Route path="comites" element={<Comites />} />
               <Route path="estructura" element={<MapaProcesos />} />
             </Route>
