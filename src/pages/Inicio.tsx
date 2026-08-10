@@ -288,16 +288,16 @@ export default function Inicio() {
                   allowFullScreen
                 ></iframe>
               ) : site.decana.foto ? (
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 bg-primary">
+                  {/* object-contain: se ve la foto completa, sin recortar (a diferencia
+                      del video, que sí llena el recuadro). */}
                   <img
                     src={site.decana.foto}
                     alt={site.decana.nombre}
                     loading="lazy"
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: site.decana.fotoPosicion ?? 'center 25%' }}
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 to-transparent pt-10 pb-4 px-5">
                     <p className="font-display font-bold text-white text-sm">{site.decana.nombre}</p>
                     <p className="text-xs text-white/80 mt-0.5">{site.decana.cargo}</p>
                   </div>

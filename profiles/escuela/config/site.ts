@@ -70,9 +70,8 @@ export const site: SiteConfig = {
     cargo: 'Director de la Escuela Profesional de Ingeniería Ambiental',
     mensaje: 'Pendiente: mensaje de bienvenida del Director de Escuela.',
     video: { youtubeId: '', start: 0 },
-    // Mientras no haya video, se muestra su foto en ese lugar (como estaba planeado).
+    // Mientras no haya video, se muestra su foto completa (object-contain) en ese lugar.
     foto: fotoDirectorEscuela,
-    fotoPosicion: 'center 15%',
   },
 
   enlaces: {
