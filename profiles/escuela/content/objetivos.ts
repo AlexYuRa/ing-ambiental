@@ -25,25 +25,11 @@ export const objetivosEducacionales = [
   }
 ];
 
-// Fuente: Resolución de Decanato N° 0324-2026-FIQ/UNT.
-export const objetivoAcademicoGeneral =
-  "Formar profesionales en Ingeniería Ambiental con sólida base científica, tecnológica y ética, capaces de analizar, diseñar, implementar y gestionar soluciones sostenibles a los problemas ambientales, contribuyendo al desarrollo sostenible, la protección del ambiente y la mejora de la calidad de vida de la sociedad, en concordancia con la normativa vigente y las demandas del entorno local, nacional e internacional.";
-
-export const objetivosAcademicosEspecificos = [
-  {
-    codigo: "Objetivo Específico 1",
-    descripcion: "Desarrollar competencias científicas y de ingeniería que permitan al estudiante identificar, analizar y resolver problemas ambientales complejos, aplicando principios de matemáticas, ciencias naturales e ingeniería ambiental."
-  },
-  {
-    codigo: "Objetivo Específico 2",
-    descripcion: "Formar profesionales capaces de diseñar y evaluar sistemas, procesos y tecnologías ambientales, considerando criterios técnicos, económicos, sociales, ambientales, de salud pública y seguridad, en concordancia con el enfoque de sostenibilidad."
-  },
-  {
-    codigo: "Objetivo Específico 3",
-    descripcion: "Fortalecer la capacidad de investigación científica y tecnológica, promoviendo el pensamiento crítico y el uso de herramientas modernas de la ingeniería ambiental (modelamiento, simulación, análisis de datos) para la toma de decisiones fundamentadas."
-  },
-  {
-    codigo: "Objetivo Específico 4",
-    descripcion: "Formar profesionales con ética, responsabilidad social y compromiso ambiental, capaces de gestionar proyectos ambientales y actuar conforme a la normativa vigente, contribuyendo al desarrollo sostenible regional y nacional."
-  }
+// TODO: falta el número de resolución de estos objetivos académicos (el que
+// tenía antes, RD N.° 0324-2026-FIQ/UNT, era de un texto distinto; no se
+// reutiliza para no atribuir mal la fuente).
+export const objetivosAcademicos = [
+  "Formar profesionales en Ingeniería Ambiental capaces de identificar, analizar y resolver problemas medioambientales con eficiencia, calidad y responsabilidad, bajo el enfoque del uso racional de los recursos limitados que garantice un futuro sostenible, dotados de sólidas bases científicas, investigativas y humanísticas.",
+  "Desarrollar en los profesionales de Ingeniería Ambiental rigurosas bases científicas e investigativas orientadas a la generación y aplicación de conocimiento para la identificación, análisis y solución de problemas ambientales.",
+  "Fortalecer en los futuros profesionales sólidos principios éticos, morales y legales que orienten el desarrollo de sus actividades profesionales, académicas y científicas, con responsabilidad social y ambiental."
 ];

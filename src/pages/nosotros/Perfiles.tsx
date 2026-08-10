@@ -1,41 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AnchoredSection from '../../components/layout/AnchoredSection';
 import PerfilIngresante from '../academico/PerfilIngresante';
 import PerfilEgresado from '../academico/PerfilEgresado';
-import CurriculumVersionSwitch from '../../components/academico/CurriculumVersionSwitch';
-import EnConstruccion from '../../components/layout/EnConstruccion';
 
 /**
  * Página agrupada "Perfiles". El navbar muestra "Perfil de ingreso" y "Perfil de
  * egreso" por separado; ambos llevan aquí (#ingreso / #egreso). Reutiliza el
  * contenido existente de cada perfil.
+ *
+ * Sin selector de versión de plan: hoy solo hay un plan vigente (2018) con
+ * información real. El switch 2018/2027 se retira hasta que exista contenido
+ * real del plan 2027; mostrarlo antes solo invita a hacer clic en algo vacío.
  */
 export default function Perfiles() {
-  // El plan vigente es el 2018 (ver historia.hitos): por defecto se abre ahí,
-  // no en "2027" (que todavía no existe como plan real).
-  const [version, setVersion] = useState('2018');
-
   return (
     <>
-      {/* Selector de versión del plan curricular (2018 / 2027) */}
-      <div className="bg-white pt-10">
-        <div className="container mx-auto px-4 md:px-8">
-          <CurriculumVersionSwitch value={version} onChange={setVersion} />
-        </div>
-      </div>
-
-      {version === '2018' ? (
-        <>
-          <AnchoredSection id="ingreso">
-            <PerfilIngresante />
-          </AnchoredSection>
-          <AnchoredSection id="egreso">
-            <PerfilEgresado />
-          </AnchoredSection>
-        </>
-      ) : (
-        <EnConstruccion titulo="Perfiles **2027**" descripcion="Los perfiles del plan 2027 estarán disponibles próximamente." />
-      )}
+      <AnchoredSection id="ingreso">
+        <PerfilIngresante />
+      </AnchoredSection>
+      <AnchoredSection id="egreso">
+        <PerfilEgresado />
+      </AnchoredSection>
     </>
   );
 }

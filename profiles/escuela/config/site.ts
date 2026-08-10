@@ -32,7 +32,7 @@ export const site: SiteConfig = {
     'Formando ingenieros ambientales con ética y calidad, comprometidos con el desarrollo sostenible de la región y del país.',
 
   hero: {
-    eyebrow: 'Escuela Profesional de',
+    eyebrow: 'Programa de Estudios de',
     titulo: { linea1: 'Ingeniería', linea2: 'Ambiental' },
     descripcion:
       'Formamos ingenieros capaces de analizar, diseñar e implementar soluciones sostenibles frente a los problemas de calidad del aire, agua y suelo, con base científica, tecnológica y ética, en la Universidad Nacional de Trujillo.',

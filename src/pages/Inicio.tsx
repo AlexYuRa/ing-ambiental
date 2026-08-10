@@ -258,7 +258,7 @@ export default function Inicio() {
               transition={{ duration: 0.6 }}
               className="flex flex-col"
             >
-              <SectionTitle title="Bienvenida de la **Decana**" />
+              <SectionTitle title="Bienvenida del **Decano**" />
 
               <div className="text-gray-700 font-body space-y-4 leading-relaxed">
                 <p>«{site.decana.mensaje}»</p>
