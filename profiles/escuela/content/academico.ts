@@ -1,5 +1,5 @@
-export const gradoAcademico = "Grado de Bachiller del Programa de Estudios";
-export const tituloProfesional = "Título Profesional del Programa de Estudios";
+export const gradoAcademico = "Bachiller en Ingeniería Ambiental";
+export const tituloProfesional = "Ingeniero Ambiental";
 
 // Fuente: Perfil del ingresante según el Modelo Educativo (contenido mínimo del programa).
 export const perfilIngresante = [

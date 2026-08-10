@@ -19,9 +19,12 @@
 // PENDIENTE (no está en el documento fuente, no se inventó):
 //   - cursoPrincipal / especialidades de cada docente (solo se conoce su rol de autoridad,
 //     cuando aplica; el resto queda con una descripción general del departamento).
-//   - fotos individuales (el único asset disponible, IMG_7617_resultado.webp, no tiene
-//     confirmado a qué docente corresponde, así que no se asignó a nadie).
+//   - fotos individuales: solo hay foto confirmada del Director de Escuela
+//     (director-escuela.webp). El otro asset disponible, IMG_7617_resultado.webp,
+//     no tiene confirmado a qué docente corresponde, así que no se asignó a nadie.
 //   - investigador / categoriaInvestigacion (RENACYT): no consta en el documento.
+
+import fotoDirectorEscuela from '../assets/docentes/director-escuela.webp';
 
 const DEPARTAMENTO = 'Departamento Académico de Ingeniería Ambiental';
 
@@ -32,7 +35,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Dirección de la Escuela Profesional de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
+    foto: fotoDirectorEscuela,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -44,6 +48,7 @@ export const docentes = [
     cursoPrincipal: 'Dirección del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -55,6 +60,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -66,6 +72,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -77,6 +84,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -88,6 +96,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -99,6 +108,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -110,6 +120,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -121,6 +132,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -132,6 +144,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -143,6 +156,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -154,6 +168,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -165,6 +180,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -176,6 +192,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -187,6 +204,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -198,6 +216,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -209,6 +228,7 @@ export const docentes = [
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
     foto: null,
+    fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',

@@ -8,6 +8,8 @@ interface Autoridad {
   nombre: string;
   bio?: string;
   correo: string;
+  foto?: string | null;
+  fotoPosicion?: string;
 }
 
 interface AutoridadCardProps {
@@ -19,11 +21,21 @@ export default function AutoridadCard({ autoridad, principal = false }: Autorida
   return (
     <motion.div whileHover={{ y: -5 }} className="h-full">
       <Card className={`h-full p-8 flex flex-col items-center text-center ${principal ? 'border-2 border-primary/50 shadow-lg' : ''}`}>
-        {/* Avatar Placeholder */}
-        <div className={`${principal ? 'w-32 h-32' : 'w-24 h-24'} bg-primary/10 rounded-xl mb-6 flex items-center justify-center text-primary`}>
-          <User className={`${principal ? 'w-16 h-16' : 'w-12 h-12'} opacity-70`} />
+        {/* Avatar: foto si existe, si no un ícono de respaldo */}
+        <div className={`${principal ? 'w-32 h-32' : 'w-24 h-24'} bg-primary/10 rounded-xl mb-6 flex items-center justify-center text-primary overflow-hidden`}>
+          {autoridad.foto ? (
+            <img
+              src={autoridad.foto}
+              alt={autoridad.nombre}
+              loading="lazy"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: autoridad.fotoPosicion ?? 'center 25%' }}
+            />
+          ) : (
+            <User className={`${principal ? 'w-16 h-16' : 'w-12 h-12'} opacity-70`} />
+          )}
         </div>
-        
+
         <span className="text-primary font-bold text-sm tracking-wider uppercase mb-2">{autoridad.cargo}</span>
         <h3 className={`${principal ? 'text-2xl' : 'text-xl'} font-display font-bold text-primary mb-3`}>{autoridad.nombre}</h3>
         {autoridad.bio && <p className="text-gray-600 font-body text-sm mb-4 leading-relaxed max-w-md">{autoridad.bio}</p>}

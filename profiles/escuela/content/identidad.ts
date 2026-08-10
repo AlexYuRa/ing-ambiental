@@ -57,10 +57,28 @@ export const historia = {
         "Creación de la Escuela Académico Profesional de Ingeniería Ambiental mediante Resolución de Asamblea Universitaria N.° 0007-2006/UNT."
     },
     {
+      año: 2007,
+      titulo: "Primer plan de estudios",
+      descripcion:
+        "Entrada en vigencia del primer Plan de Estudios del programa."
+    },
+    {
       año: 2018,
       titulo: "Nuevo plan de estudios",
       descripcion:
         "Entrada en vigencia del Plan de Estudios 2018."
+    },
+    {
+      año: 2019,
+      titulo: "Acreditación ICACIT",
+      descripcion:
+        "El programa es acreditado por ICACIT en diciembre de 2019."
+    },
+    {
+      año: 2020,
+      titulo: "Reconocimiento SINEACE",
+      descripcion:
+        "Reconocimiento oficial de la acreditación por el SINEACE, mediante Resolución de Presidencia N.° 047-2020-DEA ESU del 21 de febrero de 2020."
     },
     {
       año: 2021,
@@ -79,6 +97,10 @@ export const historia = {
       titulo: "Autoevaluación",
       descripcion:
         "Conformación del Comité de Autoevaluación y Acreditación."
+      // PENDIENTE de confirmar contigo: ¿agregamos aquí (o como hito aparte)
+      // la reestructuración curricular 2026? Y si la conformación del comité
+      // de calidad que mencionaste es una resolución distinta a esta
+      // (RR N.° 163-2026/UNT), falta el año y el número para incluirla.
     }
   ]
 };

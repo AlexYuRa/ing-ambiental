@@ -23,7 +23,6 @@ export default function Objetivos() {
             <SectionTitle
               title="Objetivos **Académicos**"
               center
-              subtitle="Lo que persigue formar el plan de estudios en cada egresado."
             />
 
             {/* Tarjetas numeradas, mismo lenguaje visual que Valores */}

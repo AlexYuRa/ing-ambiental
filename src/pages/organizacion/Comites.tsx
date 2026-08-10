@@ -36,9 +36,6 @@ export default function Comites() {
       <AnchoredSection id="tutoria">
         <EnConstruccion titulo="Comité de **Tutoría y Consejería**" bg="bg-white" />
       </AnchoredSection>
-      <AnchoredSection id="egresado">
-        <EnConstruccion titulo="Comité de **Seguimiento al Egresado**" bg="bg-gray-50" />
-      </AnchoredSection>
       <AnchoredSection id="investigacion">
         <EnConstruccion titulo="Comité de **Investigación**" bg="bg-white" />
       </AnchoredSection>

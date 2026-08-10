@@ -43,6 +43,10 @@ export interface DecanaConfig {
   cargo: string;
   mensaje: string;
   video: { youtubeId: string; start?: number };
+  /** Foto para el bloque de bienvenida del Inicio, mientras no haya video (o de respaldo si el video falla). */
+  foto?: string | null;
+  /** CSS object-position de esa foto (ej. 'center 15%'). */
+  fotoPosicion?: string;
 }
 
 export interface SiteConfig {

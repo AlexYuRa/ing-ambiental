@@ -1,4 +1,5 @@
 import type { SiteConfig } from '@/profile-types';
+import fotoDirectorEscuela from '../assets/docentes/director-escuela.webp';
 
 /**
  * Identidad del programa de estudios. Editar este archivo (y `branding.ts`) cubre
@@ -42,22 +43,23 @@ export const site: SiteConfig = {
     },
   },
 
-  // TODO: confirmar el estado real de acreditación antes de activar el sello.
-  // Hoy solo consta un Comité de Autoevaluación y Acreditación conformado
-  // (Resolución Rectoral N° 163-2026/UNT); no hay constancia de acreditación
-  // otorgada, así que el sello queda oculto (`mostrarSello: false`).
+  // Acreditado por ICACIT en diciembre de 2019; reconocimiento oficial del
+  // SINEACE mediante Resolución de Presidencia N.° 047-2020-DEA ESU
+  // (21.02.2020). El Comité de Autoevaluación y Acreditación conformado en
+  // 2026 (RR N.° 163-2026/UNT) es un nuevo ciclo de autoevaluación, no una
+  // acreditación pendiente.
   acreditacion: {
-    entidad: 'SINEACE',
-    estado: 'en-proceso',
-    texto: 'Proceso de autoevaluación y acreditación en curso',
-    mostrarSello: false,
+    entidad: 'ICACIT',
+    estado: 'acreditada',
+    texto: 'Acreditada por ICACIT · Reconocida por SINEACE',
+    mostrarSello: true,
   },
 
   // Cifras reales del programa (fuentes en docs/).
   cifras: [
     { numero: '20', etiqueta: 'Años de trayectoria', sub: 'Formando ingenieros ambientales desde 2006' },
     { numero: '17', etiqueta: 'Docentes', sub: 'Con grado de doctor y magíster' },
-    { numero: '3', etiqueta: 'Laboratorios especializados', sub: 'Aguas, ciencias ambientales y residuos sólidos' },
+    { numero: '4', etiqueta: 'Laboratorios especializados', sub: 'Aguas, tecnologías limpias, residuos sólidos y ciencias ambientales' },
   ],
 
   // Nombre y cargo son datos oficiales (Director de Escuela). El mensaje de
@@ -68,6 +70,9 @@ export const site: SiteConfig = {
     cargo: 'Director de la Escuela Profesional de Ingeniería Ambiental',
     mensaje: 'Pendiente: mensaje de bienvenida del Director de Escuela.',
     video: { youtubeId: '', start: 0 },
+    // Mientras no haya video, se muestra su foto en ese lugar (como estaba planeado).
+    foto: fotoDirectorEscuela,
+    fotoPosicion: 'center 15%',
   },
 
   enlaces: {

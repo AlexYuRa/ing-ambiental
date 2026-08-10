@@ -27,7 +27,7 @@ const Perfiles = lazy(() => import('../pages/nosotros/Perfiles'));          // i
 // Módulo: Organización
 const OrganizacionIndex = lazy(() => import('../pages/organizacion/index'));
 const OrganizacionDireccion = lazy(() => import('../pages/organizacion/Direccion')); // escuela + departamento
-const OrganosGobierno = lazy(() => import('../pages/organizacion/OrganosGobierno')); // consejo de facultad + consejeros + representantes
+const OrganosGobierno = lazy(() => import('../pages/organizacion/OrganosGobierno')); // consejo de facultad
 const Comites = lazy(() => import('../pages/organizacion/Comites'));                 // los 5 comités
 const Administrativos = lazy(() => import('../pages/organizacion/Administrativos'));
 
@@ -35,6 +35,7 @@ const Administrativos = lazy(() => import('../pages/organizacion/Administrativos
 const AcademicoIndex = lazy(() => import('../pages/academico/index'));
 const PlanEstudios = lazy(() => import('../pages/academico/PlanEstudios'));
 const Titulacion = lazy(() => import('../pages/academico/Titulacion'));
+const Laboratorios = lazy(() => import('../pages/academico/Laboratorios'));
 
 // Módulo: Investigación
 const InvestigacionIndex = lazy(() => import('../pages/investigacion/index'));
@@ -103,7 +104,7 @@ export default function AppRouter() {
               <Route path="objetivos" element={<Objetivos />} />
               <Route path="perfiles" element={<Perfiles />} />
               <Route path="malla-curricular" element={<PlanEstudios />} />
-              <Route path="laboratorios" element={<EnConstruccion titulo="Laboratorios" />} />
+              <Route path="laboratorios" element={<Laboratorios />} />
               <Route path="responsabilidad-social" element={<EnConstruccion titulo="Responsabilidad **Social**" />} />
               <Route path="convenios" element={<Convenios />} />
               <Route path="movilidad" element={<Movilidad />} />

@@ -258,7 +258,7 @@ export default function Inicio() {
               transition={{ duration: 0.6 }}
               className="flex flex-col"
             >
-              <SectionTitle title="Bienvenida del **Decano**" />
+              <SectionTitle title="Bienvenida del **Director**" />
 
               <div className="text-gray-700 font-body space-y-4 leading-relaxed">
                 <p>«{site.decana.mensaje}»</p>
@@ -287,6 +287,21 @@ export default function Inicio() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
+              ) : site.decana.foto ? (
+                <div className="absolute inset-0">
+                  <img
+                    src={site.decana.foto}
+                    alt={site.decana.nombre}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: site.decana.fotoPosicion ?? 'center 25%' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="font-display font-bold text-white text-sm">{site.decana.nombre}</p>
+                    <p className="text-xs text-white/80 mt-0.5">{site.decana.cargo}</p>
+                  </div>
+                </div>
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-primary/5 text-primary text-center px-6">
                   {/* Retrato silueta + sello de video: transmite "aquí te da la bienvenida una persona" aun sin datos */}
@@ -433,8 +448,7 @@ export default function Inicio() {
             center
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {ambientes.map((amb, idx) => (
               <motion.div
                 key={amb.titulo}
@@ -468,7 +482,16 @@ export default function Inicio() {
                 </div>
               </motion.div>
             ))}
+          </div>
 
+          <div className="flex justify-center mt-10">
+            <Link
+              to="/academico/laboratorios"
+              className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:text-gold transition-colors"
+            >
+              Ver todos los laboratorios
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

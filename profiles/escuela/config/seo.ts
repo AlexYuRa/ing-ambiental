@@ -1,8 +1,8 @@
 import type { SeoConfig } from '@/profile-types';
 
 export const seo: SeoConfig = {
-  title: 'Programa de estudios de Ingeniería Ambiental de la UNT',
+  title: 'Ingeniería Ambiental | Universidad Nacional de Trujillo',
   description:
-    'Descripción del programa de estudios para buscadores (meta description). Resume en una o dos frases qué es el programa y a quién forma.',
+    'Escuela Profesional de Ingeniería Ambiental de la Universidad Nacional de Trujillo (UNT), acreditada por ICACIT. Plan de estudios, admisión, docentes e investigación.',
   lang: 'es',
 };

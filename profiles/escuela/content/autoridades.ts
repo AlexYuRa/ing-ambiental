@@ -1,29 +1,24 @@
+import fotoDirectorEscuela from '../assets/docentes/director-escuela.webp';
+
 // Correo y bio pendientes de confirmación; nombre y cargo son datos oficiales.
 export const director = {
   nombre: "Dr. Luis Orlando Moncada Albitres",
   cargo: "Director de la Escuela Profesional de Ingeniería Ambiental",
   correo: "direccion@universidad.edu.pe",
   bio: "Pendiente: breve reseña del director (grado académico, especialidad y experiencia).",
-  foto: null // Reemplaza por la ruta de la foto o deja null para la silueta
+  foto: fotoDirectorEscuela,
+  fotoPosicion: "center 15%"
 };
 
-export const coordinadores = [
-  {
-    nombre: "Nombre del Coordinador(a)",
-    cargo: "Coordinador(a) Académico",
-    correo: "coordinacion.academica@universidad.edu.pe"
-  },
-  {
-    nombre: "Nombre del Coordinador(a)",
-    cargo: "Coordinador(a) de Investigación",
-    correo: "coordinacion.investigacion@universidad.edu.pe"
-  },
-  {
-    nombre: "Nombre del Coordinador(a)",
-    cargo: "Coordinador(a) de Prácticas Preprofesionales",
-    correo: "coordinacion.practicas@universidad.edu.pe"
-  }
-];
+// Correo y bio pendientes de confirmación; nombre y cargo son datos oficiales.
+export const jefeDepartamento = {
+  nombre: "Dr. Manuel Isaías Vera Herrera",
+  cargo: "Director del Departamento Académico de Ingeniería Ambiental",
+  correo: "direccion@universidad.edu.pe",
+  bio: "Pendiente: breve reseña del director (grado académico, especialidad y experiencia).",
+  foto: null, // Reemplaza por la ruta de la foto o deja null para la silueta
+  fotoPosicion: "center 25%"
+};
 
 // Estructura según el Estatuto UNT vigente (2021, pág. 18): una Facultad se
 // compone de Escuela Profesional, Departamentos Académicos, Unidad de Segunda

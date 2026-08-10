@@ -59,15 +59,7 @@ export const NAV_LINKS: NavSection[] = [
       {
         label: 'Órganos de Gobierno',
         items: [
-          {
-            name: 'Órganos de Gobierno',
-            path: '/organizacion/organos-gobierno',
-            navAs: [
-              { name: 'Consejo de Facultad', path: '/organizacion/organos-gobierno#consejo-facultad' },
-              { name: 'Consejeros', path: '/organizacion/organos-gobierno#consejeros' },
-              { name: 'Centro Federado', path: '/organizacion/organos-gobierno#representantes' },
-            ],
-          },
+          { name: 'Consejo de Facultad', path: '/organizacion/organos-gobierno' },
         ],
       },
       {
@@ -87,7 +79,6 @@ export const NAV_LINKS: NavSection[] = [
               { name: 'Comité de Calidad', path: '/organizacion/comites#calidad' },
               { name: 'Comité Técnico de Currículo', path: '/organizacion/comites#curriculo' },
               { name: 'Comité de Tutoría y Consejería', path: '/organizacion/comites#tutoria' },
-              { name: 'Comité de Seguimiento al Egresado', path: '/organizacion/comites#egresado' },
               { name: 'Comité de Investigación', path: '/organizacion/comites#investigacion' },
               { name: 'Comité de Responsabilidad Social', path: '/organizacion/comites#responsabilidad' },
             ],
