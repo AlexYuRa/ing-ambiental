@@ -1,12 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Megaphone, X, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { avisos as AVISOS } from '@profile/content/avisos';
 
+// Cada cuánto avanza solo al siguiente aviso.
+const AUTOPLAY_MS = 6000;
+
 export default function AnnouncementBanner() {
   const [visible, setVisible] = useState(true);
   const [currentIdx, setCurrentIdx] = useState(0);
+  const ticksRef = useRef(0);
+
+  useEffect(() => {
+    if (AVISOS.length <= 1) return;
+    // Respeta la preferencia del sistema de reducir movimiento: sin auto-avance.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const id = setInterval(() => {
+      ticksRef.current += 1;
+      // Tras recorrer todos los avisos una vez (como mínimo), se oculta solo
+      // en vez de volver a empezar el ciclo.
+      if (ticksRef.current >= AVISOS.length) {
+        setVisible(false);
+      } else {
+        setCurrentIdx((prev) => (prev + 1) % AVISOS.length);
+      }
+    }, AUTOPLAY_MS);
+    return () => clearInterval(id);
+  }, []);
 
   // Sin avisos en el perfil: el banner no se muestra.
   if (AVISOS.length === 0) return null;
