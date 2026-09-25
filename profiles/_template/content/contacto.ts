@@ -2,7 +2,7 @@
 export const informacionContacto = {
   direccion: '',
   telefonos: [] as string[],
-  correo: '',
+  correos: [] as string[],
   horarioAtencion: '',
   // URL "embed" de Google Maps (Compartir → Insertar un mapa → atributo src).
   mapaEmbedUrl: '',

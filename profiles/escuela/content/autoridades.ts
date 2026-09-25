@@ -1,23 +1,30 @@
-import fotoDirectorEscuela from '../assets/docentes/director-escuela.webp';
+import fotoDirectorEscuela from '../assets/docentes/ELIAS_HARO.webp';
+import fotoDirectorDepartamento from '../assets/docentes/MANUEL_VERA.webp';
 
-// Correo y bio pendientes de confirmación; nombre y cargo son datos oficiales.
+// Fuente: docs/actuyalizar pag. web.doc (sección II, Organización).
 export const director = {
-  nombre: "Dr. Luis Orlando Moncada Albitres",
+  nombre: "Dr. Elías Fernando Haro Aro",
   cargo: "Director de la Escuela Profesional de Ingeniería Ambiental",
-  correo: "direccion@universidad.edu.pe",
-  bio: "Pendiente: breve reseña del director (grado académico, especialidad y experiencia).",
-  foto: fotoDirectorEscuela,
-  fotoPosicion: "center 15%"
+  correo: "eharoa@unitru.edu.pe",
+  formacion: [
+    "Ingeniero Químico, Universidad Nacional de Trujillo (17-08-1996)",
+    "Licenciado en Educación Secundaria, especialidad de Matemática, Física y Computación, Universidad Privada San Pedro de Chimbote (05-12-2002)",
+    "Maestro en Economía, mención Economía de Empresas, Universidad Nacional de Trujillo (18-07-2003)",
+    "Doctor en Ingeniería Química Ambiental, Universidad Nacional de Trujillo (07-10-2022)"
+  ],
+  foto: fotoDirectorEscuela
 };
 
-// Correo y bio pendientes de confirmación; nombre y cargo son datos oficiales.
 export const jefeDepartamento = {
   nombre: "Dr. Manuel Isaías Vera Herrera",
   cargo: "Director del Departamento Académico de Ingeniería Ambiental",
-  correo: "direccion@universidad.edu.pe",
-  bio: "Pendiente: breve reseña del director (grado académico, especialidad y experiencia).",
-  foto: null, // Reemplaza por la ruta de la foto o deja null para la silueta
-  fotoPosicion: "center 25%"
+  correo: "mvera@unitru.edu.pe",
+  formacion: [
+    "Ingeniero Químico, Universidad Nacional de Trujillo (06-05-1983)",
+    "Maestro en Ciencias, mención Gestión Ambiental, Universidad Nacional de Trujillo (29-01-1999)",
+    "Doctor en Ingeniería Química Ambiental, Universidad Nacional de Trujillo (15-03-2013)"
+  ],
+  foto: fotoDirectorDepartamento
 };
 
 // Estructura según el Estatuto UNT vigente (2021, pág. 18): una Facultad se

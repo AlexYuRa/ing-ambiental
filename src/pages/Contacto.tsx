@@ -5,7 +5,7 @@ import FormContacto from '../components/contacto/FormContacto';
 import MapaUbicacion from '../components/contacto/MapaUbicacion';
 import RedesSociales from '../components/contacto/RedesSociales';
 import { informacionContacto } from '@profile/content/contacto';
-import { MessageSquare, MapPin, Phone, Mail } from 'lucide-react';
+import { MessageSquare, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export default function Contacto() {
   return (
@@ -44,9 +44,22 @@ export default function Contacto() {
                   <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center shrink-0 text-primary"><Mail className="w-5 h-5" /></div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-1 uppercase tracking-wider">Correo Institucional</h4>
-                    <p className="text-gray-600 text-sm">{informacionContacto.correo}</p>
+                    {informacionContacto.correos.map((correo) => (
+                      <a key={correo} href={`mailto:${correo}`} className="block text-gray-600 text-sm hover:text-primary transition-colors">
+                        {correo}
+                      </a>
+                    ))}
                   </div>
                 </div>
+                {informacionContacto.horarioAtencion && (
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center shrink-0 text-primary"><Clock className="w-5 h-5" /></div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-sm mb-1 uppercase tracking-wider">Horario de atención</h4>
+                      <p className="text-gray-600 text-sm">{informacionContacto.horarioAtencion}</p>
+                    </div>
+                  </div>
+                )}
               </div>
 
               <hr className="border-gray-100 mb-8" />

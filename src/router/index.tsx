@@ -12,6 +12,7 @@ import Inicio from '../pages/Inicio';
 // El resto de páginas se cargan bajo demanda (code-splitting): cada ruta trae
 // su propio chunk solo al visitarla, así la carga inicial es mucho más ligera.
 const Noticias = lazy(() => import('../pages/Noticias'));
+const NoticiaDetalle = lazy(() => import('../pages/NoticiaDetalle'));
 const Contacto = lazy(() => import('../pages/Contacto'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
@@ -128,6 +129,7 @@ export default function AppRouter() {
 
             {/* Conservadas fuera del menú */}
             <Route path="/noticias" element={<Noticias />} />
+            <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
             <Route path="/contacto" element={<Contacto />} />
 
             {/* 404 */}

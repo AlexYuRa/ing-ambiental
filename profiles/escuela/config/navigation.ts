@@ -80,6 +80,7 @@ export const NAV_LINKS: NavSection[] = [
               { name: 'Comité Técnico de Currículo', path: '/organizacion/comites#curriculo' },
               { name: 'Comité de Tutoría y Consejería', path: '/organizacion/comites#tutoria' },
               { name: 'Comité de Investigación', path: '/organizacion/comites#investigacion' },
+              { name: 'Comité de Seguimiento al Egresado', path: '/organizacion/comites#egresado' },
               { name: 'Comité de Responsabilidad Social', path: '/organizacion/comites#responsabilidad' },
             ],
           },

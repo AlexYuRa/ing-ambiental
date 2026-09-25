@@ -90,13 +90,16 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-gold shrink-0" />
                   <span>{informacionContacto.telefonos.join(' / ')}</span>
                 </li>
-                <li className="flex gap-3 text-sm items-center">
-                  <Mail className="w-4 h-4 text-gold shrink-0" />
-                  <a href={`mailto:${informacionContacto.correo}`} className="text-gray-300 hover:text-white transition-colors">
-                    {informacionContacto.correo}
-                  </a>
-                </li>
-              </ul>
+                <li className="flex gap-3 text-sm items-start">
+                  <Mail className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                  <span className="flex flex-col gap-1">
+                    {informacionContacto.correos.map((correo) => (
+                      <a key={correo} href={`mailto:${correo}`} className="text-gray-300 hover:text-white transition-colors">
+                        {correo}
+                      </a>
+                    ))}
+                  </span>
+                </li>              </ul>
             </div>
 
             {/* Columna 4: Horarios + Links institucionales */}
@@ -106,11 +109,7 @@ export default function Footer() {
               </h3>
               <div className="flex gap-3 text-gray-300 text-sm items-start mb-6">
                 <Clock className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="text-white font-semibold">Lunes a Viernes</p>
-                  <p>08:00 – 13:00 hrs</p>
-                  <p>14:00 – 16:00 hrs</p>
-                </div>
+                <p className="text-white font-semibold">{informacionContacto.horarioAtencion}</p>
               </div>
               <div className="space-y-2 border-t border-white/10 pt-5">
                 <p className="text-gray-300 text-xs uppercase tracking-wider mb-3 font-semibold">

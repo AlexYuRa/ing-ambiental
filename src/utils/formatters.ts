@@ -50,3 +50,12 @@ export function formatearEmail(email: string): string {
   if (!email) return '';
   return email.toLowerCase().trim();
 }
+
+/**
+ * Quita el título académico abreviado al inicio de un nombre ("Dr. ", "Ms.C. ",
+ * "Mg. "…), para mostrarlo donde el grado ya aparece aparte.
+ */
+export function quitarTituloAcademico(nombre: string): string {
+  if (!nombre) return '';
+  return nombre.replace(/^(?:(?:Dra|Dr|Ms\.C|Msc|Ms|Mg|Ing|Lic|Tec|Est)\.\s*)+/i, '').trim();
+}

@@ -5,30 +5,63 @@ export const mision =
 export const vision =
   "Al 2024, la Facultad de Ingeniería Química lidera la formación de ingenieros químicos e ingenieros ambientales, siendo reconocida internacionalmente por la excelente calidad académica, científica, tecnológica e innovadora de sus egresados, en el marco del desarrollo sostenible.";
 
+// Fuente: docs/actuyalizar pag. web.doc (sección XVI). Cada afirmación es un
+// elemento de `descripcion` (se muestra como lista).
 export const valores = [
   {
-    nombre: "Valor 1",
-    descripcion: "Descripción breve del primer valor institucional del programa."
+    nombre: "Verdad",
+    descripcion: [
+      "Promovemos y fortalecemos la práctica de la búsqueda, cultivo y difusión de la verdad, orientando nuestro accionar en un contexto ético-moral y legal.",
+      "Priorizamos y respetamos el interés superior del estudiante."
+    ]
   },
   {
-    nombre: "Valor 2",
-    descripcion: "Descripción breve del segundo valor institucional del programa."
+    nombre: "Justicia",
+    descripcion: [
+      "Respetamos la vida, la persona y la dignidad humana.",
+      "Ejercicio de una ética pública, profesional y de respeto al bien común.",
+      "Recibimos y ejercemos nuestros derechos y deberes para convivir en sociedad.",
+      "Respetamos y hacemos valer los derechos de todos para mantener un ambiente de armonía."
+    ]
   },
   {
-    nombre: "Valor 3",
-    descripcion: "Descripción breve del tercer valor institucional del programa."
+    nombre: "Responsabilidad",
+    descripcion: [
+      "Desarrollamos programas de responsabilidad social pertinentes con el desarrollo sociocultural y ecológico.",
+      "Desarrollamos la sensibilidad y compromiso social.",
+      "Trabajamos por el continuo desarrollo institucional e internacionalización de la UNT.",
+      "Formamos profesionales y ciudadanos responsables social y ambientalmente, creadores de valor público, conocimientos científico, tecnológico, humanístico y artístico para el desarrollo sostenible de la sociedad."
+    ]
   },
   {
-    nombre: "Valor 4",
-    descripcion: "Descripción breve del cuarto valor institucional del programa."
+    nombre: "Inclusión Social",
+    descripcion: [
+      "Formamos profesionales y ciudadanos equitativos e inclusivos.",
+      "Rechazamos toda forma de violencia y discriminación.",
+      "Fomentamos prácticas pluralistas de democracia institucional.",
+      "Desarrollamos programas de enseñanza e investigación pertinentes y de impacto social.",
+      "Valoramos plenamente la vida humana en su diversidad sociocultural.",
+      "Los alumnos reciben un trato y enseñanza con igualdad sin ningún tipo de discriminación."
+    ]
   },
   {
-    nombre: "Valor 5",
-    descripcion: "Descripción breve del quinto valor institucional del programa."
+    nombre: "Honestidad",
+    descripcion: [
+      "Practicamos la meritocracia y ética profesional.",
+      "Rendimos cuentas de nuestros actos en forma transparente, siempre con la verdad.",
+      "Participamos en actividades que se encuentren enmarcadas dentro del ordenamiento ético, moral y legal.",
+      "Practicamos una forma de vivir congruente entre lo que pensamos y la conducta que adoptamos hacia otras personas.",
+      "Actuamos con transparencia manteniendo el ejemplo como principio básico."
+    ]
   },
   {
-    nombre: "Valor 6",
-    descripcion: "Descripción breve del sexto valor institucional del programa."
+    nombre: "Integridad",
+    descripcion: [
+      "Formamos profesionales y ciudadanos con ética e integridad.",
+      "Tratamos de hacer siempre lo correcto, o aquello que consideramos bueno sin afectar los intereses de otras personas.",
+      "Vivimos conforme los principios éticos y morales, incluyendo la honestidad, la rectitud y la decencia, libre de corrupción.",
+      "Actuamos con integridad y transparencia respecto a nuestras acciones, siguiendo normas éticas de conducta."
+    ]
   }
 ];
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { avisos as AVISOS } from '@profile/content/avisos';
 
 // Cada cuánto avanza solo al siguiente aviso.
-const AUTOPLAY_MS = 6000;
+const AUTOPLAY_MS = 4000;
 
 export default function AnnouncementBanner() {
   const [visible, setVisible] = useState(true);

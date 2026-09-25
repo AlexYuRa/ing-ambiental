@@ -85,7 +85,7 @@ export default function Navbar() {
             </span>
             <span className="flex items-center gap-1.5 hover:text-gold transition-colors cursor-pointer">
               <Mail className="w-4 h-4" />
-              {informacionContacto.correo}
+              {informacionContacto.correos[0]}
             </span>
           </div>
           <div className="flex items-center">

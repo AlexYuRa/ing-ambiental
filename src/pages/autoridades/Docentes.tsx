@@ -33,7 +33,7 @@ export default function Docentes() {
       const okFiltro =
         filtro === 'Todos' ||
         (filtro === FILTRO_INVESTIGADORES ? d.investigador : d.departamento === filtro);
-      const okQuery = !q || d.nombre.toLowerCase().includes(q) || d.cursoPrincipal.toLowerCase().includes(q);
+      const okQuery = !q || d.nombre.toLowerCase().includes(q);
       return okFiltro && okQuery;
     });
   }, [filtro, query]);
@@ -49,6 +49,9 @@ export default function Docentes() {
 
         {/* Filtros: departamento + búsqueda */}
         <div className="mt-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 max-w-7xl mx-auto">
+          {/* Con una sola categoría (solo "Todos" + 1) el filtro no aporta: se oculta
+              hasta que haya categorías reales para distinguir. */}
+          {filtros.length > 2 && (
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar docentes">
             {filtros.map((f) => (
               <button
@@ -66,14 +69,15 @@ export default function Docentes() {
               </button>
             ))}
           </div>
+          )}
 
-          <div className="relative w-full lg:w-72">
+          <div className="relative w-full lg:w-72 lg:ml-auto">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" aria-hidden="true" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar por nombre o curso..."
+              placeholder="Buscar docente por nombre..."
               aria-label="Buscar docente"
               className="w-full pl-9 pr-3 py-2.5 text-base rounded-lg border border-gray-200 bg-white placeholder:text-gray-500 focus:outline-none focus:border-gold transition-colors"
             />

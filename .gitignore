@@ -56,8 +56,18 @@ GUIA-COLABORACION.md
 # Respaldo de imagenes originales sin optimizar (no subir)
 .asset-backup/
 
-# Documentos internos de diagnóstico/correcciones de rendimiento (no se publican)
-docs/diagnostico.md
-docs/correcciones.md
-docs/Observaciones Página web.md
-docs/ESTADO-CONTENIDO-WEB.md
+# Documentos fuente e internos (resoluciones, .doc/.pdf/.csv que envía el
+# programa, diagnósticos, estado del contenido). Son insumos para editar el
+# contenido en profiles/, no forman parte del sitio.
+docs/
+
+# Archivos temporales de Office (se crean mientras un .doc/.docx/.xlsx está abierto)
+~$*
+*.tmp
+
+# Fotos que no usa el sitio:
+#  - segunda toma de cada persona (NOMBRE_1.webp); la web usa NOMBRE.webp
+#  - docente que ya no labora en la escuela
+profiles/escuela/assets/docentes/*_1.webp
+profiles/escuela/assets/administrativos/*_1.webp
+profiles/escuela/assets/docentes/CARLOS_ANTONIO*.webp

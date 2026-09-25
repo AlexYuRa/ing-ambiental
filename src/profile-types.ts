@@ -41,7 +41,8 @@ export interface CifraItem {
 export interface DecanaConfig {
   nombre: string;
   cargo: string;
-  mensaje: string;
+  /** Un string o un párrafo por elemento. */
+  mensaje: string | string[];
   video: { youtubeId: string; start?: number };
   /** Foto para el bloque de bienvenida del Inicio, mientras no haya video (o de respaldo si el video falla). Se muestra completa (object-contain), no recortada. */
   foto?: string | null;
@@ -99,6 +100,14 @@ export interface SeoConfig {
   title: string;
   description: string;
   lang: string;
+  /** URL pública del sitio (con / final). Base de las URL absolutas de la vista previa. */
+  url?: string;
+  /** Nombre del sitio en la vista previa al compartir (og:site_name). */
+  siteName?: string;
+  /** Imagen de la vista previa (1200×630), ruta dentro de public/ (p. ej. 'og-image.jpg'). */
+  image?: string;
+  /** Locale de Open Graph (p. ej. 'es_PE'). */
+  locale?: string;
 }
 
 export interface Profile {

@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface ValorItemProps {
-  valor: { nombre: string; descripcion: string };
+  /** `descripcion` en arreglo se muestra como lista de afirmaciones. */
+  valor: { nombre: string; descripcion: string | string[] };
   index: number;
 }
 
@@ -27,9 +28,17 @@ export default function ValorItem({ valor, index }: ValorItemProps) {
           <h4 className="font-display font-bold text-primary text-base mb-1 group-hover:text-gold transition-colors">
             {valor.nombre}
           </h4>
-          <p className="text-gray-500 text-sm leading-relaxed">
-            {valor.descripcion}
-          </p>
+          {Array.isArray(valor.descripcion) ? (
+            <ul className="text-gray-500 text-sm leading-relaxed space-y-1.5 list-disc pl-4 marker:text-gold">
+              {valor.descripcion.map((afirmacion) => (
+                <li key={afirmacion}>{afirmacion}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-gray-500 text-sm leading-relaxed">
+              {valor.descripcion}
+            </p>
+          )}
         </div>
       </div>
     </motion.div>

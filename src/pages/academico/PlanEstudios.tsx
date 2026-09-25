@@ -13,7 +13,7 @@ export default function PlanEstudios() {
         <SectionTitle
           title="Plan de **Estudios**"
           center
-          subtitle="Explora la malla como un mapa interactivo: cada curso muestra créditos, horas y prerrequisitos. Toca un curso para ver su detalle."
+          subtitle="Explora la malla como un mapa interactivo: cada curso muestra su código, créditos y prerrequisitos. Toca un curso para ver su detalle."
         />
 
         <div className="mt-10">

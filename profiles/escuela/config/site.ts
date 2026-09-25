@@ -1,5 +1,5 @@
 import type { SiteConfig } from '@/profile-types';
-import fotoDirectorEscuela from '../assets/docentes/director-escuela.webp';
+import fotoDirectorEscuela from '../assets/docentes/ELIAS_HARO.webp';
 
 /**
  * Identidad del programa de estudios. Editar este archivo (y `branding.ts`) cubre
@@ -58,17 +58,24 @@ export const site: SiteConfig = {
   // Cifras reales del programa (fuentes en docs/).
   cifras: [
     { numero: '20', etiqueta: 'Años de trayectoria', sub: 'Formando ingenieros ambientales desde 2006' },
-    { numero: '17', etiqueta: 'Docentes', sub: 'Con grado de doctor y magíster' },
+    { numero: '16', etiqueta: 'Docentes', sub: 'Con grado de doctor y magíster' },
     { numero: '4', etiqueta: 'Laboratorios especializados', sub: 'Aguas, tecnologías limpias, residuos sólidos y ciencias ambientales' },
   ],
 
-  // Nombre y cargo son datos oficiales (Director de Escuela). El mensaje de
-  // bienvenida y el video son palabras suyas: quedan pendientes hasta que el
-  // director los proporcione, no se redactan por su cuenta.
+  // Director de Escuela y su mensaje de bienvenida (texto literal de
+  // docs/actuyalizar pag. web.doc, un párrafo por elemento). El video queda
+  // pendiente hasta que el director lo proporcione.
   decana: {
-    nombre: 'Dr. Luis Orlando Moncada Albitres',
+    nombre: 'Dr. Elías Fernando Haro Aro',
     cargo: 'Director de la Escuela Profesional de Ingeniería Ambiental',
-    mensaje: 'Pendiente: mensaje de bienvenida del Director de Escuela.',
+    mensaje: [
+      'Estimada comunidad académica, estudiantes, investigadores y visitantes:',
+      'Es un honor darles la más cordial bienvenida al portal web oficial de la Escuela Profesional de Ingeniería Ambiental. Este espacio digital ha sido diseñado para ser un puente de comunicación, transparencia y difusión de nuestro quehacer académico, científico y de proyección social.',
+      'Nuestra misión es formar profesionales de excelencia, capaces de liderar la gestión, conservación y restauración del entorno natural con una visión sistémica y un profundo sentido ético. Ante la crisis climática y los desafíos ecológicos globales y locales, el rol del ingeniero ambiental es hoy más crucial que nunca. Por ello, combinamos una rigurosa preparación científica y tecnológica con el fomento del pensamiento crítico y la innovación, asegurando que nuestros egresados propongan soluciones viables y sostenibles para el sector público y privado.',
+      'A nuestros estudiantes, los invitamos a aprovechar al máximo los laboratorios, proyectos de investigación y convenios que ponemos a su disposición. A los futuros postulantes, les abrimos las puertas a una de las disciplinas con mayor impacto social y relevancia de nuestro tiempo.',
+      'Les invito a explorar las diferentes secciones de nuestra página para conocer nuestro plan de estudios, plana docente, actividades académicas y los logros que consolidan nuestro compromiso con el desarrollo sostenible.',
+      '¡Bienvenidos a nuestra comunidad!',
+    ],
     video: { youtubeId: '', start: 0 },
     // Mientras no haya video, se muestra su foto completa (object-contain) en ese lugar.
     foto: fotoDirectorEscuela,

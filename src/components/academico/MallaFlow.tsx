@@ -33,6 +33,9 @@ const AREA_STYLES: Record<AreaType, string> = {
   especialidad: 'border-l-sky-400 bg-white text-sky-950 hover:bg-sky-100/70',
 };
 
+// Las horas son opcionales en el perfil: sin ellas se muestra el código del curso.
+const hasHours = (c: CourseData) => c.hoursT !== undefined && c.hoursP !== undefined;
+
 // El nodo lleva un callback `onOpen` para abrir su detalle por clic o teclado.
 type CourseNodeData = CourseData & { onOpen: (course: CourseData) => void };
 
@@ -70,7 +73,7 @@ function CourseNode({ data }: NodeProps<CourseNodeData>) {
       </h3>
 
       <div className="mt-2 pt-1.5 border-t border-slate-200/50 text-[9px] opacity-80 flex justify-between items-center">
-        <span>HT: {data.hoursT}h | HP: {data.hoursP}h</span>
+        <span>{hasHours(data) ? `HT: ${data.hoursT}h | HP: ${data.hoursP}h` : `Cód. ${data.id}`}</span>
         <span className="font-semibold underline">Detalles</span>
       </div>
 
@@ -171,10 +174,14 @@ export default function MallaFlow() {
       </div>
       <h3 className="text-base font-bold text-slate-900 leading-tight mb-3">{course.name}</h3>
 
-      <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
-        <BookOpen size={12} /> Descripción de la asignatura
-      </h4>
-      <p className="text-xs text-slate-600 leading-relaxed mb-4">{course.description}</p>
+      {course.description && (
+        <>
+          <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
+            <BookOpen size={12} /> Descripción de la asignatura
+          </h4>
+          <p className="text-xs text-slate-600 leading-relaxed mb-4">{course.description}</p>
+        </>
+      )}
 
       <div className="grid grid-cols-2 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200/60 text-xs mb-4">
         <div className="flex items-center gap-2">
@@ -185,11 +192,23 @@ export default function MallaFlow() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Clock size={16} className="text-slate-600 shrink-0" />
-          <div>
-            <p className="text-[9px] text-slate-400 font-medium">Carga Horaria</p>
-            <p className="font-bold text-slate-700">HT {course.hoursT}h · HP {course.hoursP}h</p>
-          </div>
+          {hasHours(course) ? (
+            <>
+              <Clock size={16} className="text-slate-600 shrink-0" />
+              <div>
+                <p className="text-[9px] text-slate-400 font-medium">Carga Horaria</p>
+                <p className="font-bold text-slate-700">HT {course.hoursT}h · HP {course.hoursP}h</p>
+              </div>
+            </>
+          ) : (
+            <>
+              <BookOpen size={16} className="text-slate-600 shrink-0" />
+              <div>
+                <p className="text-[9px] text-slate-400 font-medium">Código</p>
+                <p className="font-bold text-slate-700">{course.id}</p>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -209,8 +228,8 @@ export default function MallaFlow() {
     <>
       <h3 className="font-display font-black text-primary text-lg leading-tight mb-2">Malla curricular</h3>
       <p className="text-sm text-slate-600 leading-relaxed mb-5">
-        Mapa interactivo del plan de estudios por ciclos. Selecciona un curso para ver sus créditos,
-        horas y descripción. Las líneas conectan los prerrequisitos.
+        Mapa interactivo del plan de estudios por ciclos. Selecciona un curso para ver su código y
+        créditos. Las líneas conectan los prerrequisitos.
       </p>
       <div className="grid grid-cols-3 gap-2 mb-5">
         {[

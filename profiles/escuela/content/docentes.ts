@@ -19,23 +19,48 @@
 // PENDIENTE (no está en el documento fuente, no se inventó):
 //   - cursoPrincipal / especialidades de cada docente (solo se conoce su rol de autoridad,
 //     cuando aplica; el resto queda con una descripción general del departamento).
-//   - fotos individuales: solo hay foto confirmada del Director de Escuela
-//     (director-escuela.webp). El otro asset disponible, IMG_7617_resultado.webp,
-//     no tiene confirmado a qué docente corresponde, así que no se asignó a nadie.
+//   - fotos individuales: faltan Mg. Javier Francisco Urquiaga Ríos y Dr. Alex
+//     Antenor Benites Aliaga (sin foto en assets/docentes/, muestran silueta).
+//     Cada docente tiene una segunda toma (NOMBRE_1.webp) sin usar.
 //   - investigador / categoriaInvestigacion (RENACYT): no consta en el documento.
 
-import fotoDirectorEscuela from '../assets/docentes/director-escuela.webp';
+import fotoHaroAro from '../assets/docentes/ELIAS_HARO.webp';
+import fotoMoncadaAlbitres from '../assets/docentes/LUIS_MONCADA.webp';
+import fotoVeraHerrera from '../assets/docentes/MANUEL_VERA.webp';
+import fotoMorenoEustaquio from '../assets/docentes/WALTER_MORENO.webp';
+import fotoQuezadaAlvarez from '../assets/docentes/MERARDO_QUEZADA.webp';
+import fotoMendozaBobadilla from '../assets/docentes/JORGE_MENDOZA.webp';
+import fotoDiazDiaz from '../assets/docentes/NATALIA_PILAR.webp';
+import fotoGutierrezEscarcena from '../assets/docentes/LAURA_GUTIERREZ.webp';
+import fotoVegaTang from '../assets/docentes/MODESTO_VEGA.webp';
+import fotoSolisMunoz from '../assets/docentes/HANIEL_SOLIS.webp';
+import fotoCastilloRamirez from '../assets/docentes/ALBERTO_CASTILLO.webp';
+import fotoFernandezEssenwanger from '../assets/docentes/GUSTAVO_FERNÁNDEZ.webp';
+import fotoSilvaUgaz from '../assets/docentes/ALOIS_SILVA.webp';
+import fotoLazaroPerez from '../assets/docentes/BEBSI_LAZARO.webp';
 
 const DEPARTAMENTO = 'Departamento Académico de Ingeniería Ambiental';
 
 export const docentes = [
   {
-    nombre: 'Dr. Luis Orlando Moncada Albitres',
+    nombre: 'Dr. Elías Fernando Haro Aro',
     grado: 'Doctor',
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Dirección de la Escuela Profesional de Ingeniería Ambiental',
     especialidades: [],
-    foto: fotoDirectorEscuela,
+    foto: fotoHaroAro,
+    fotoPosicion: 'center 15%',
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: 'Nombrado',
+  },
+  {
+    nombre: 'Dr. Luis Orlando Moncada Albitres',
+    grado: 'Doctor',
+    departamento: DEPARTAMENTO,
+    cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
+    especialidades: [],
+    foto: fotoMoncadaAlbitres,
     fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
@@ -47,8 +72,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Dirección del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoVeraHerrera,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -59,8 +84,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoMorenoEustaquio,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -71,8 +96,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoQuezadaAlvarez,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -83,8 +108,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoMendozaBobadilla,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -95,8 +120,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoDiazDiaz,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -107,20 +132,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
-    investigador: false,
-    categoriaInvestigacion: null,
-    condicion: 'Nombrado',
-  },
-  {
-    nombre: 'Dr. Elías Fernando Haro Aro',
-    grado: 'Doctor',
-    departamento: DEPARTAMENTO,
-    cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
-    especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoGutierrezEscarcena,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -131,8 +144,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoVegaTang,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
@@ -143,23 +156,11 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoSolisMunoz,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Nombrado',
-  },
-  {
-    nombre: 'Ms. Carlos Antonio Pérez Calderón',
-    grado: 'Magíster',
-    departamento: DEPARTAMENTO,
-    cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
-    especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
-    investigador: false,
-    categoriaInvestigacion: null,
-    condicion: 'Contratado',
   },
   {
     nombre: 'Ms. Alberto Mariano Castillo Ramírez',
@@ -167,8 +168,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoCastilloRamirez,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -179,8 +180,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoFernandezEssenwanger,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -203,8 +204,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoSilvaUgaz,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',
@@ -215,8 +216,8 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
-    fotoPosicion: 'center 25%',
+    foto: fotoLazaroPerez,
+    fotoPosicion: 'center 15%',
     investigador: false,
     categoriaInvestigacion: null,
     condicion: 'Contratado',

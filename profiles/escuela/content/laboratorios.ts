@@ -71,7 +71,7 @@ export const laboratorios: Laboratorio[] = [
     n: 6,
     nombre: 'Laboratorio de Cómputo',
     ubicacion: 'Pabellón Ambiental, 3er piso',
-    aforo: 'Pendiente el cálculo del aforo',
+    aforo: '30 personas',
     responsables: ['Elías Haro Aro'],
     telefono: '957 979 893',
     // TODO: confirmar que la foto corresponde a este laboratorio (asignada

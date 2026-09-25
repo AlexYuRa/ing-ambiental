@@ -9,7 +9,7 @@ export default function Direccion() {
       <div className="container mx-auto px-4 md:px-8">
         <SectionTitle title="Órganos de **Dirección**" center />
 
-        <div className="max-w-3xl mx-auto mt-8">
+        <div className="max-w-5xl mx-auto mt-8">
           <AutoridadCard autoridad={director} principal={true} />
         </div>
       </div>
