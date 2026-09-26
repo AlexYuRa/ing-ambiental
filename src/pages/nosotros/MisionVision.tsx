@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import MisionCard from '../../components/identidad/MisionCard';
-import { mision, vision } from '@profile/content/identidad';
+import { mision, vision, misionVisionResolucion } from '@profile/content/identidad';
 import { Target, Telescope } from 'lucide-react';
 
 export default function MisionVision() {
@@ -30,14 +30,14 @@ export default function MisionVision() {
           </div>
         </div>
 
-        {/* Cita compartida: misión y visión vienen de la misma resolución. Se
-            aclara aparte para que "Al 2024..." (en la visión) no se lea como
-            una fecha de hoy, sino como el horizonte fijado por esa resolución. */}
-        <div className="mt-8 flex justify-center">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500 bg-white px-4 py-2 rounded-full border border-gray-200">
-            Vigentes según Resolución de Decanato N.° 533-2021-FIQ/UNT
-          </span>
-        </div>
+        {/* Resolución que aprueba ambas (definida en el perfil). Sin ella, no se muestra. */}
+        {misionVisionResolucion && (
+          <div className="mt-8 flex justify-center">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500 bg-white px-4 py-2 rounded-full border border-gray-200">
+              Vigentes según {misionVisionResolucion}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

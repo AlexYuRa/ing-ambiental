@@ -1,9 +1,16 @@
-// Fuente: Resolución de Decanato N° 533-2021-FIQ/UNT.
+// Misión y visión del Programa de Estudios de Ingeniería Ambiental (puntos
+// 1.2.4 y 1.2.5 del documento del programa). Reemplazan a las de la Facultad
+// (Resolución de Decanato N.° 533-2021-FIQ/UNT). Aprobadas por Resolución de
+// Consejo de Facultad N.° 005-2026-FIQ/UNT (23 de setiembre de 2026).
 export const mision =
-  "Formar ingenieros químicos e ingenieros ambientales, con ética y calidad, innovadores de conocimiento científico y tecnológico, que contribuyan al desarrollo sostenible de la región La Libertad y del país.";
+  "Formamos ingenieros ambientales íntegros, críticos, éticos e innovadores, con sólidos conocimientos científicos, tecnológicos y humanísticos, orientados a la investigación, capaces de caracterizar, prevenir, controlar y remediar la contaminación ambiental y de gestionar sosteniblemente los recursos naturales y los riesgos ambientales, con responsabilidad social y en el marco de la normativa vigente, comprometidos con el desarrollo sostenible de la región La Libertad, del país y con alcance global.";
 
 export const vision =
-  "Al 2024, la Facultad de Ingeniería Química lidera la formación de ingenieros químicos e ingenieros ambientales, siendo reconocida internacionalmente por la excelente calidad académica, científica, tecnológica e innovadora de sus egresados, en el marco del desarrollo sostenible.";
+  "Al año 2030, seremos un programa de estudios acreditado y reconocido a nivel nacional e internacional por la excelencia en la formación de ingenieros ambientales y por la generación de conocimiento científico y soluciones tecnológicas innovadoras frente a los desafíos ambientales, con un enfoque transformador e inclusivo, liderazgo sostenible y firme compromiso con la responsabilidad social y ambiental.";
+
+// Resolución que aprueba la misión y visión vigentes. Se muestra como etiqueta
+// debajo de ambas; si está vacía, la etiqueta no aparece.
+export const misionVisionResolucion = "Resolución de Consejo de Facultad N.° 005-2026-FIQ/UNT";
 
 // Fuente: docs/actuyalizar pag. web.doc (sección XVI). Cada afirmación es un
 // elemento de `descripcion` (se muestra como lista).
@@ -117,7 +124,7 @@ export const historia = {
       año: 2021,
       titulo: "Misión y visión",
       descripcion:
-        "Aprobación de la misión y visión vigentes de la Facultad de Ingeniería Química."
+        "Aprobación de la misión y visión de la Facultad de Ingeniería Química (Resolución de Decanato N.° 533-2021-FIQ/UNT)."
     },
     {
       año: 2023,
@@ -134,6 +141,12 @@ export const historia = {
       // la reestructuración curricular 2026? Y si la conformación del comité
       // de calidad que mencionaste es una resolución distinta a esta
       // (RR N.° 163-2026/UNT), falta el año y el número para incluirla.
+    },
+    {
+      año: 2026,
+      titulo: "Misión y visión del programa",
+      descripcion:
+        "Aprobación de la misión y visión propias del Programa de Estudios de Ingeniería Ambiental, mediante Resolución de Consejo de Facultad N.° 005-2026-FIQ/UNT del 23 de setiembre de 2026."
     }
   ]
 };

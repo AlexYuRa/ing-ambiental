@@ -49,7 +49,8 @@ export default function MisionCard({ title, description, icon }: MisionCardProps
         </h3>
 
         {/* Descripción */}
-        <p className="text-gray-600 font-body text-sm md:text-base leading-relaxed flex-1">
+        {/* relative z-10: el texto queda por encima del círculo decorativo */}
+        <p className="relative z-10 text-gray-600 font-body text-sm md:text-base leading-relaxed flex-1">
           {description}
         </p>
 

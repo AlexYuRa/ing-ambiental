@@ -1,19 +1,21 @@
-# Sitio institucional de Programa de Estudios (plantilla multi‑escuela)
+# Ingeniería Ambiental · UNT — Sitio web
 
-Sitio web institucional para un **Programa de Estudios** universitario, construido
-como **plantilla reutilizable**: el diseño y el código son compartidos, y los datos
-de cada escuela viven en un *perfil* aparte. Así, cada persona del equipo clona el
-repo, edita **solo el perfil de su escuela** y publica, sin tocar `src/`.
+Sitio web oficial de la **Escuela Profesional de Ingeniería Ambiental** de la
+Facultad de Ingeniería Química, **Universidad Nacional de Trujillo**.
 
-> ¿Vas a editar el contenido de tu escuela? Ve directo a
-> **[`profiles/README.md`](profiles/README.md)**.
+**Publicado en:** <https://ambiental.unitru.edu.pe/>
+
+Reúne la información que el programa debe tener publicada: identidad (misión, visión,
+valores, historia), organización (dirección, docentes, administrativos, comités),
+plan de estudios y malla curricular, laboratorios, investigación, admisión, noticias
+y contacto.
 
 ## Stack
 
 - **React 18** + **TypeScript** + **Vite 5**
-- **TailwindCSS 3** (colores de marca globales en `tailwind.config.js`)
+- **TailwindCSS 3** (colores institucionales en `tailwind.config.js`)
 - **React Router 6** (rutas), **Framer Motion** (animación)
-- **ReactFlow** + **dagre** (malla curricular y organigrama como grafos)
+- **ReactFlow** + **dagre** (malla curricular interactiva)
 - **lucide-react** (iconografía)
 
 ## Arranque rápido
@@ -23,78 +25,146 @@ Requisitos: **Node 18+** y npm.
 ```bash
 npm install     # una vez
 npm run dev     # desarrollo en el navegador (http://localhost:5173)
-npm run build   # genera el sitio final
+npm run build   # genera el sitio para publicar (ver "Publicar")
 ```
 
 | Script | Qué hace |
 |---|---|
 | `npm run dev` | Servidor de desarrollo con recarga en caliente |
-| `npm run build` | Compila el sitio a la carpeta de salida (ver *Despliegue*) |
+| `npm run build` | Compila el sitio a la carpeta del theme de WordPress |
 | `npm run preview` | Sirve localmente el build de producción |
-| `npm run typecheck` | Verifica tipos con TypeScript (`tsc --noEmit`) |
+| `npm run typecheck` | Verifica tipos con TypeScript |
 | `npm run lint` | Linter sobre `src/` |
 
-## Arquitectura: sistema vs. perfil
+## Dónde está cada cosa
 
-El proyecto separa el **código común** del **contenido de cada escuela**:
+El **contenido** (textos, personas, fotos) está separado del **código** (diseño y
+páginas). Para actualizar información casi siempre basta con editar
+`profiles/escuela/`; no hace falta tocar `src/`.
 
 ```
-src/                  Sistema: páginas, componentes, router, estilos (NO se edita por escuela)
-profiles/
-  escuela/            Perfil activo por defecto: los datos de TU escuela
-    config/           Identidad (site), branding, SEO, navegación
-    content/          Malla, docentes, noticias, autoridades, admisión, avisos, ...
-    assets/           Logos e imágenes
-    index.ts          Compone el perfil
-  _template/          Perfil en blanco de referencia (no se publica)
-profiles/README.md    Guía para editar tu escuela
-tailwind.config.js    Colores de marca (globales a todas las escuelas)
-vite.config.ts        Build, alias y selección de perfil
+profiles/escuela/
+  config/         Identidad del sitio, logos, SEO y menú
+  content/        Todo el contenido de las páginas
+  assets/         Fotos e imágenes (docentes, administrativos, noticias, hero, laboratorios…)
+public/           Archivos que se copian tal cual (favicon, og-image.jpg)
+src/              Código: páginas, componentes, router, estilos
+docs/             Documentos fuente del programa (no se sube al repo)
 ```
 
-El sistema **nunca** importa de una carpeta de escuela concreta: usa los alias
-`@/` (→ `src/`) y `@profile` (→ el perfil activo). Todo el texto visible se arma
-desde el perfil; no queda nada de una escuela escrito dentro de `src/`.
+| Quiero cambiar… | Archivo |
+|---|---|
+| Mensaje de bienvenida del director, cifras del Inicio, hero | `config/site.ts` |
+| Título, descripción e imagen al compartir el enlace | `config/seo.ts` (+ `public/og-image.jpg`) |
+| Etiquetas del menú | `config/navigation.ts` |
+| Director de Escuela y de Departamento | `content/autoridades.ts` |
+| Plana docente | `content/docentes.ts` |
+| Personal administrativo | `content/administrativos.ts` |
+| Comités (miembros, resoluciones) | `content/comites.ts` |
+| Noticias (y el banner de avisos) | `content/noticias.ts` |
+| Malla curricular y prerrequisitos | `content/malla.ts` |
+| Misión, visión, valores, historia | `content/identidad.ts` |
+| Objetivos, perfiles de ingreso/egreso | `content/objetivos.ts`, `content/academico.ts` |
+| Laboratorios | `content/laboratorios.ts` |
+| Líneas, proyectos y publicaciones | `content/investigacion.ts` |
+| Dirección, teléfono, correos, horario, mapa | `content/contacto.ts` |
 
-### El perfil activo
+> Las rutas de `profiles/escuela/` se omiten en la tabla: `config/…` y
+> `content/…` están dentro de esa carpeta.
 
-Se resuelve en **build‑time** con la variable de entorno `PROFILE`
-(por defecto `escuela`), vía el alias `@profile` en `vite.config.ts`:
+## Tareas frecuentes
+
+### Agregar una noticia
+
+En `content/noticias.ts`, agrega un objeto a `noticias` con:
+
+- `slug`: la parte final de la URL (`/noticias/<slug>`), en minúsculas y con guiones.
+- `titulo`, `categoria`, `resumen` (texto de la tarjeta) y `contenido` (un párrafo por elemento).
+- `imagen` (portada) y `galeria` (todas las fotos).
+- `fecha`/`fechaFormateada` son opcionales; si no están, no se muestran.
+
+Las fotos van en `assets/noticias/<slug>/01.webp`, `02.webp`… Cada noticia tiene
+su propia página con galería. El **banner de avisos** se arma solo con las
+noticias: muestra sus títulos una vez y se oculta.
+
+### Fotos de docentes y administrativos
+
+- Formato **webp**, vertical **400 × 600 px**, con la cara en la parte superior.
+- Van en `assets/docentes/` o `assets/administrativos/`, con el nombre de la
+  persona (p. ej. `ELIAS_HARO.webp`), y se asignan en el `foto` de cada persona.
+- Quien no tiene foto muestra una silueta.
+- La segunda toma de cada persona (`NOMBRE_1.webp`) no la usa el sitio y está
+  excluida del repo en `.gitignore`.
+
+### Docentes
+
+La tarjeta muestra la foto, el grado y el nombre (sin el título abreviado, que ya
+indica el grado). Al pasar el cursor se voltea y muestra la condición
+(nombrado/contratado), el departamento, el cargo (si tiene uno) y las
+`especialidades` (cuando se registren).
+
+### Comités
+
+Cada comité en `content/comites.ts` tiene `descripcion`, `resolucion`, `fecha`
+(opcional) y `miembros`. El cargo `'Miembro'` se muestra sin etiqueta; cualquier
+otro cargo aparece como etiqueta.
+
+### Vista previa al compartir el enlace
+
+WhatsApp, Facebook y demás no ejecutan JavaScript: leen las etiquetas del
+`<head>`. Al compilar, `vite.config.ts` escribe en `index.html` el título, la
+descripción y las etiquetas Open Graph a partir de `config/seo.ts`. La imagen es
+`public/og-image.jpg` (1200 × 630 px).
+
+Si tras publicar la vista previa sigue saliendo vieja, es la caché de la red
+social: se refresca en el [Depurador de Facebook](https://developers.facebook.com/tools/debug/)
+("Volver a extraer").
+
+## Publicar
+
+El sitio se publica como **theme de WordPress** en el servidor de la universidad.
 
 ```bash
-npm run build                 # usa profiles/escuela
-PROFILE=otra-escuela npm run build   # usa profiles/otra-escuela
+npm run build
 ```
 
-### Crear una escuela nueva
+- El build sale a `../wp-content/themes/educacion-primaria/dist/` (fuera de este
+  repo), con `base` `/wp-content/themes/educacion-primaria/dist/`.
+- Sube esa carpeta `dist/` completa al theme del servidor.
+- El slug del theme se cambia en `vite.config.ts` (`THEME_SLUG`) o con
+  `THEME_SLUG=<slug> npm run build`.
+- Con `VERCEL=1` el build sale a `dist/` con `base` `/` (despliegue en Vercel).
 
-1. Copia `profiles/_template/` (o `profiles/escuela/`) a `profiles/<tu-escuela>/`.
-2. Rellena `config/` y `content/`, y coloca tus imágenes en `assets/`.
-3. Construye con `PROFILE=<tu-escuela> npm run build`.
+## Colores institucionales
 
-El modelo habitual del equipo es más simple: cada quien edita directamente
-**`profiles/escuela/`** en su clon. Ver [`profiles/README.md`](profiles/README.md).
+Definidos en `tailwind.config.js`:
 
-## Colores de marca
+| Token | Uso |
+|---|---|
+| `primary` `#12377B` | Azul institucional (color base, superficies oscuras) |
+| `gold` `#E6AD09` | Dorado institucional (acentos, íconos, bordes) |
+| `gold-deep` `#C49308` | Hover del dorado |
+| `ink` `#1E1A17` | Texto base |
+| `success` / `danger` | Estados de éxito y error |
 
-Son **globales** (iguales para todas las escuelas) y están en
-**`tailwind.config.js`**: `primary` (azul) y `gold` (dorado), entre otros tokens.
-Para **texto** dorado sobre fondos claros usa `gold-ink` (dorado oscuro que sí
-cumple contraste AA); reserva `gold` para el logotipo, íconos, rellenos y bordes.
-Si una escuela necesita otra paleta, se ajustan ahí.
+## Fuente del contenido
 
-## Despliegue
-
-El destino del build se decide en `vite.config.ts`:
-
-- **WordPress (por defecto):** sale a `../wp-content/themes/educacion-primaria/dist/`
-  con `base` `/wp-content/themes/educacion-primaria/dist/`. Si tu escuela se publica
-  en otro theme, ajusta `outDir` y `base` antes de construir.
-- **Vercel:** con `VERCEL=1`, el build sale a `dist/` con `base` `/`.
+El contenido sale de los documentos que entrega el programa: resoluciones, fichas
+de docentes, planillas de laboratorios, etc. Esos archivos se guardan en `docs/`,
+que está excluido del repo. Cuando llega información nueva, **el documento
+vigente del programa manda** sobre lo que ya estaba publicado.
 
 ## Convenciones
 
-- **No edites `src/`** para cambiar contenido: todo dato de escuela va en su perfil.
-- En `config/navigation.ts` puedes cambiar **etiquetas** del menú, no las **rutas**
-  (las define el router en `src/router`).
-- Mantén `npm run typecheck` y `npm run lint` en verde antes de publicar.
+- Para cambiar contenido, edita `profiles/escuela/`, no `src/`.
+- En `config/navigation.ts` se cambian **etiquetas** del menú, no **rutas**
+  (las define `src/router`).
+- Mantén `npm run typecheck`, `npm run lint` y `npm run build` sin errores antes
+  de publicar.
+
+## Nota técnica: perfiles
+
+El código nació como plantilla para varias escuelas: el contenido se lee del
+*perfil* activo mediante el alias `@profile` (por defecto `profiles/escuela`,
+configurable con `PROFILE=<carpeta>`). `profiles/_template/` es un perfil en
+blanco de referencia. Para este sitio solo se usa `profiles/escuela/`.

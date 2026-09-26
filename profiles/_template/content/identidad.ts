@@ -1,6 +1,7 @@
 // Forma: ver profiles/escuela/content/identidad.ts
 export const mision = '';
 export const vision = '';
+export const misionVisionResolucion = '';
 export const valores: { nombre: string; descripcion: string }[] = [];
 export const historia = {
   fundacion: 0,
