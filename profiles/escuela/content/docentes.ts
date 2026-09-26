@@ -38,6 +38,9 @@ import fotoCastilloRamirez from '../assets/docentes/ALBERTO_CASTILLO.webp';
 import fotoFernandezEssenwanger from '../assets/docentes/GUSTAVO_FERNÁNDEZ.webp';
 import fotoSilvaUgaz from '../assets/docentes/ALOIS_SILVA.webp';
 import fotoLazaroPerez from '../assets/docentes/BEBSI_LAZARO.webp';
+import fotoAlexBenites from '../assets/docentes/ALEX-BENITES.webp';
+
+
 
 const DEPARTAMENTO = 'Departamento Académico de Ingeniería Ambiental';
 
@@ -192,7 +195,7 @@ export const docentes = [
     departamento: DEPARTAMENTO,
     cursoPrincipal: 'Docente del Departamento Académico de Ingeniería Ambiental',
     especialidades: [],
-    foto: null,
+    foto: fotoAlexBenites,
     fotoPosicion: 'center 25%',
     investigador: false,
     categoriaInvestigacion: null,
