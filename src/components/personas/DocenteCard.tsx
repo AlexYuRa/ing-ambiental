@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Check, FlaskConical, BadgeCheck, Building2, Briefcase } from 'lucide-react';
+import { User, Check, FlaskConical, BadgeCheck, Building2, Briefcase, GraduationCap, BookOpen } from 'lucide-react';
 import { quitarTituloAcademico } from '../../utils/formatters';
 
 /**
@@ -8,7 +8,8 @@ import { quitarTituloAcademico } from '../../utils/formatters';
  * Frente: foto · grado · línea separadora · nombre (sin el título abreviado,
  * porque el grado ya se muestra arriba).
  * Reverso (al hacer hover o enfocar con teclado): la información disponible —
- * condición, departamento, cargo (si tiene uno) y especialidades (si las hay).
+ * condición, cargo (si tiene uno), grado académico, departamento, cursos,
+ * especialidades y trayectoria (cada bloque solo si hay dato).
  * El flip es solo visual; ambas caras viven en el DOM, así los lectores de
  * pantalla acceden a todo. Respeta prefers-reduced-motion (flip instantáneo).
  */
@@ -22,6 +23,12 @@ interface Docente {
    *  puede necesitar un encuadre distinto. Por defecto 'center 25%'. */
   fotoPosicion?: string;
   especialidades?: string[];
+  /** Grado académico completo (ej. "Doctora en Ingeniería Química Ambiental"). */
+  gradoAcademico?: string;
+  /** Cursos que dicta en la escuela. */
+  cursos?: string[];
+  /** Trayectoria / otra información relevante (párrafo libre). */
+  perfil?: string;
   investigador?: boolean;
   categoriaInvestigacion?: string | null;
   condicion?: string | null;
@@ -34,6 +41,7 @@ const esCargo = (texto: string) => Boolean(texto) && !/^Docente del/i.test(texto
 export default function DocenteCard({ docente }: { docente: Docente }) {
   const nombre = quitarTituloAcademico(docente.nombre);
   const especialidades = docente.especialidades ?? [];
+  const cursos = docente.cursos ?? [];
   const cargo = esCargo(docente.cursoPrincipal) ? docente.cursoPrincipal : null;
 
   return (
@@ -125,12 +133,37 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
               </div>
             )}
 
+            {docente.gradoAcademico && (
+              <div>
+                <p className="flex items-center gap-1.5 text-gold text-[10px] font-black uppercase tracking-[0.14em] mb-1">
+                  <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" /> Grado académico
+                </p>
+                <p className="text-xs text-white/90 leading-snug">{docente.gradoAcademico}</p>
+              </div>
+            )}
+
             {docente.departamento && (
               <div>
                 <p className="flex items-center gap-1.5 text-gold text-[10px] font-black uppercase tracking-[0.14em] mb-1">
                   <Building2 className="w-3.5 h-3.5" aria-hidden="true" /> Departamento
                 </p>
                 <p className="text-xs text-white/90 leading-snug">{docente.departamento}</p>
+              </div>
+            )}
+
+            {cursos.length > 0 && (
+              <div>
+                <p className="flex items-center gap-1.5 text-gold text-[10px] font-black uppercase tracking-[0.14em] mb-2">
+                  <BookOpen className="w-3.5 h-3.5" aria-hidden="true" /> Cursos a cargo
+                </p>
+                <ul className="space-y-2">
+                  {cursos.map((curso, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-white/90 leading-snug">
+                      <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" strokeWidth={3} />
+                      <span>{curso}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
 
@@ -147,6 +180,15 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {docente.perfil && (
+              <div>
+                <p className="text-gold text-[10px] font-black uppercase tracking-[0.14em] mb-1">
+                  Trayectoria
+                </p>
+                <p className="text-xs text-white/90 leading-snug">{docente.perfil}</p>
               </div>
             )}
           </div>

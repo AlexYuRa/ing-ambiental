@@ -87,7 +87,7 @@ export const comiteSeguimientoEgresado: Comite = {
   resolucion: 'Resolución de Decanato N.° 540-2026-FIQ/UNT',
   miembros: [
     { nombre: 'Mg. Javier Francisco Urquiaga Ríos', cargo: 'Miembro' },
-    { nombre: 'Mg. Betsy Melany Lázaro Pérez', cargo: 'Miembro' },
+    { nombre: 'Mg. Bebsi Melany Lázaro Pérez', cargo: 'Miembro' },
     { nombre: 'Dr. Daniel Alfredo Cribilleros Ríos', cargo: 'Miembro' },
   ],
 };

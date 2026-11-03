@@ -1,42 +1,75 @@
 import React, { useMemo, useState } from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import DocenteCard from '../../components/personas/DocenteCard';
-import { docentes } from '@profile/content/docentes';
+import { docentes as todosLosDocentes } from '@profile/content/docentes';
 import { Search } from 'lucide-react';
 
-// Etiqueta del filtro que muestra solo investigadores (un filtro más, como los
-// departamentos). Es un valor "virtual" que no corresponde a un departamento real.
-const FILTRO_INVESTIGADORES = 'Investigadores';
+type Docente = (typeof todosLosDocentes)[number];
+
+interface Filtro {
+  valor: string;
+  etiqueta: string;
+  cumple: (d: Docente) => boolean;
+}
+
+// Docentes con `oculto: true` (ficha incompleta) no se muestran ni cuentan.
+const docentes = todosLosDocentes.filter((d) => !d.oculto);
+
+const esDoctor = (d: Docente) => /^doctor/i.test(d.grado);
+const esMagister = (d: Docente) => /^mag[ií]ster|^maestr/i.test(d.grado);
+
+/**
+ * Filtros posibles, construidos a partir de los datos de cada docente. Solo se
+ * muestran los que aplican a alguien y no abarcan a todos (un filtro que deja
+ * a todos o a nadie no aporta). Así la página sirve como plantilla para
+ * cualquier escuela.
+ */
+function construirFiltros(lista: Docente[]): Filtro[] {
+  const candidatos: Filtro[] = [
+    { valor: 'nombrados', etiqueta: 'Nombrados', cumple: (d) => d.condicion === 'Nombrado' },
+    { valor: 'contratados', etiqueta: 'Contratados', cumple: (d) => d.condicion === 'Contratado' },
+    { valor: 'doctores', etiqueta: 'Doctores', cumple: esDoctor },
+    { valor: 'magisteres', etiqueta: 'Magísteres', cumple: esMagister },
+    { valor: 'investigadores', etiqueta: 'Investigadores', cumple: (d) => Boolean(d.investigador) },
+  ];
+
+  // Departamentos: solo si hay más de uno.
+  const departamentos = [...new Set(lista.map((d) => d.departamento).filter(Boolean))] as string[];
+  if (departamentos.length > 1) {
+    candidatos.push(
+      ...departamentos.map((dep) => ({
+        valor: `dep:${dep}`,
+        etiqueta: dep.replace(/^Departamento Académico de /i, ''),
+        cumple: (d: Docente) => d.departamento === dep,
+      })),
+    );
+  }
+
+  return candidatos.filter((f) => {
+    const n = lista.filter(f.cumple).length;
+    return n > 0 && n < lista.length;
+  });
+}
 
 export default function Docentes() {
-  const [filtro, setFiltro] = useState('Todos');
+  const [filtro, setFiltro] = useState('todos');
   const [query, setQuery] = useState('');
 
-  // Filtros disponibles: "Todos" + departamentos + (si hay) "Investigadores".
-  // Se muestran como "Filtro 1", "Filtro 2"... en vez del nombre real: es una
-  // plantilla reutilizable por cualquier escuela y no todas tendrán la misma
-  // cantidad ni tipo de categorías.
-  const filtros = useMemo(() => {
-    const departamentos = [...new Set(docentes.map((d) => d.departamento).filter(Boolean))];
-    const valores = docentes.some((d) => d.investigador)
-      ? [...departamentos, FILTRO_INVESTIGADORES]
-      : departamentos;
-    return [
-      { valor: 'Todos', etiqueta: 'Todos' },
-      ...valores.map((valor, i) => ({ valor, etiqueta: `Filtro ${i + 1}` })),
-    ];
-  }, []);
+  const filtros = useMemo<Filtro[]>(
+    () => [{ valor: 'todos', etiqueta: 'Todos', cumple: () => true }, ...construirFiltros(docentes)],
+    [],
+  );
+
+  const conteo = useMemo(
+    () => Object.fromEntries(filtros.map((f) => [f.valor, docentes.filter(f.cumple).length])),
+    [filtros],
+  );
 
   const filtrados = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return docentes.filter((d) => {
-      const okFiltro =
-        filtro === 'Todos' ||
-        (filtro === FILTRO_INVESTIGADORES ? d.investigador : d.departamento === filtro);
-      const okQuery = !q || d.nombre.toLowerCase().includes(q);
-      return okFiltro && okQuery;
-    });
-  }, [filtro, query]);
+    const activo = filtros.find((f) => f.valor === filtro) ?? filtros[0];
+    return docentes.filter((d) => activo.cumple(d) && (!q || d.nombre.toLowerCase().includes(q)));
+  }, [filtro, query, filtros]);
 
   return (
     <div className="bg-gray-50 py-16 md:py-20">
@@ -47,28 +80,29 @@ export default function Docentes() {
           center
         />
 
-        {/* Filtros: departamento + búsqueda */}
+        {/* Filtros + búsqueda */}
         <div className="mt-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 max-w-7xl mx-auto">
-          {/* Con una sola categoría (solo "Todos" + 1) el filtro no aporta: se oculta
-              hasta que haya categorías reales para distinguir. */}
-          {filtros.length > 2 && (
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar docentes">
-            {filtros.map((f) => (
-              <button
-                key={f.valor}
-                type="button"
-                onClick={() => setFiltro(f.valor)}
-                aria-pressed={filtro === f.valor}
-                className={`px-4 py-2.5 rounded-full text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
-                  filtro === f.valor
-                    ? 'bg-primary text-white'
-                    : 'bg-white text-primary border border-gray-200 hover:border-gold/50'
-                }`}
-              >
-                {f.etiqueta}
-              </button>
-            ))}
-          </div>
+          {filtros.length > 1 && (
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar docentes">
+              {filtros.map((f) => (
+                <button
+                  key={f.valor}
+                  type="button"
+                  onClick={() => setFiltro(f.valor)}
+                  aria-pressed={filtro === f.valor}
+                  className={`px-4 py-2.5 rounded-full text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
+                    filtro === f.valor
+                      ? 'bg-primary text-white'
+                      : 'bg-white text-primary border border-gray-200 hover:border-gold/50'
+                  }`}
+                >
+                  {f.etiqueta}
+                  <span className={`ml-1.5 tabular-nums ${filtro === f.valor ? 'text-white/70' : 'text-gray-400'}`}>
+                    {conteo[f.valor]}
+                  </span>
+                </button>
+              ))}
+            </div>
           )}
 
           <div className="relative w-full lg:w-72 lg:ml-auto">
@@ -92,7 +126,7 @@ export default function Docentes() {
           </div>
         ) : (
           <p className="text-center text-gray-600 mt-12">
-            No se encontraron docentes con esos criterios. Prueba con otro departamento o búsqueda.
+            No se encontraron docentes con esos criterios. Prueba con otro filtro o búsqueda.
           </p>
         )}
       </div>

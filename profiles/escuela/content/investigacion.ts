@@ -419,11 +419,57 @@ export const publicaciones: Publicacion[] = [
   },
 ];
 
-export const convenios = [
+// Convenios vinculados a Ingeniería Ambiental: solo los que coordina el Departamento
+// Académico de Ingeniería Ambiental o uno de sus docentes.
+// Fuente: listados de la ORNI-UNT en docs/ (CONVENIOS ACTUALIZADOS- 2026.pdf y
+// CONVENIOS INTERNACIONALES ACTUALIZADOS.pdf; este último no tiene ninguno del programa).
+// Fechas en formato DD/MM/AAAA. El estado (vigente/vencido) se calcula en la página
+// a partir de `termino`. Ordenados del más reciente al más antiguo.
+export interface Convenio {
+  institucion: string;
+  /** Ámbito: "Nacional" o "Internacional". */
+  ambito: 'Nacional' | 'Internacional';
+  /** Tipo de instrumento (Convenio Marco, Específico, etc.). */
+  tipo: string;
+  descripcion: string;
+  inicio: string;
+  termino: string;
+  resolucion: string;
+  coordinador: string;
+}
+
+export const convenios: Convenio[] = [
   {
-    institucion: "Nombre de la institución aliada",
-    tipo: "Interinstitucional",
-    descripcion: "Descripción breve del convenio: con quién y para qué.",
-    vigencia: "2022 - 2027"
-  }
+    institucion: 'Gerencia Regional de Salud de La Libertad',
+    ambito: 'Nacional',
+    tipo: 'Convenio de Cooperación Interinstitucional',
+    descripcion:
+      'Convenio de cooperación interinstitucional entre la Universidad Nacional de Trujillo y la Gerencia Regional de Salud de La Libertad.',
+    inicio: '26/03/2025',
+    termino: '26/03/2028',
+    resolucion: 'RCU N° 166-2025/UNT',
+    coordinador: 'Director del Departamento Académico de Ingeniería Ambiental',
+  },
+  {
+    institucion: 'Ministerio de Energía y Minas – CARELEC',
+    ambito: 'Nacional',
+    tipo: 'Convenio Marco de Colaboración Interinstitucional',
+    descripcion:
+      'Convenio marco con el Consejo de Administración de Recursos para la Capacitación en Electricidad (CARELEC) del Ministerio de Energía y Minas.',
+    inicio: '12/07/2023',
+    termino: '12/07/2026',
+    resolucion: 'RCU N° 461-2023/UNT',
+    coordinador: 'Ing. Manuel Isaías Vera Herrera, Director del Departamento Académico de Ingeniería Ambiental',
+  },
+  {
+    institucion: 'Municipalidad Provincial de Santiago de Chuco',
+    ambito: 'Nacional',
+    tipo: 'Convenio Marco de Cooperación Académica',
+    descripcion:
+      'Acta de resolución y convenio marco de cooperación académica entre la Universidad Nacional de Trujillo y la Municipalidad Provincial de Santiago de Chuco.',
+    inicio: '16/06/2023',
+    termino: '16/06/2028',
+    resolucion: 'RCU N° 258-2023/UNT',
+    coordinador: 'Dr. Jorge Luis Mendoza Bobadilla',
+  },
 ];

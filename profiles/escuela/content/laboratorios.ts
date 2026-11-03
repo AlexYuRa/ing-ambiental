@@ -1,5 +1,6 @@
 // Laboratorios del programa: ubicación, aforo, responsables y contacto.
 // Fuente: planilla de laboratorios que pasó el programa (no está en docs/).
+// Descripciones (labs 3 y 5): fichas de docs/ADMINISTRATIVOS AMBIENTAL.md (nov. 2026).
 // El número (`n`) es el que trae la planilla original; no hay un N.° 4 en la
 // fuente, así que no se inventó uno.
 
@@ -12,6 +13,8 @@ import imgComputo from '../assets/laboratorios/computo.webp';
 export interface Laboratorio {
   n: number;
   nombre: string;
+  /** Misión / descripción breve del laboratorio (opcional). */
+  descripcion?: string;
   ubicacion: string;
   aforo: string;
   responsables: string[];
@@ -50,6 +53,8 @@ export const laboratorios: Laboratorio[] = [
   {
     n: 3,
     nombre: 'Laboratorio de Investigación de Residuos Sólidos y Peligrosos',
+    descripcion:
+      'Genera conocimiento científico y tecnológico para el manejo integral de residuos. Ofrece análisis, diagnóstico y asesoría especializada para minimizar riesgos, recuperar materiales y energía, formar capital humano y contribuir a ciudades e industrias más limpias y sostenibles.',
     ubicacion: 'Pabellón Ambiental, 2do piso',
     aforo: '16 personas',
     responsables: ['Walter Moreno Eustaquio', 'Carlos Alberto Valqui Mendoza'],
@@ -60,6 +65,8 @@ export const laboratorios: Laboratorio[] = [
   {
     n: 5,
     nombre: 'Laboratorio de Investigación y Desarrollo en Ciencias Ambientales',
+    descripcion:
+      'Desarrolla investigación científica y tecnológica de excelencia en ciencias ambientales, con servicios analíticos confiables y asesoría especializada que contribuyen a la formación de profesionales, la innovación sostenible y la conservación de los recursos naturales, promoviendo el desarrollo sostenible de la sociedad.',
     ubicacion: 'Pabellón Ambiental, 1er piso',
     aforo: '16 personas',
     responsables: ['Medardo Alberto Quezada Álvarez', 'Carlos Octavio Purizaca Jacinto'],

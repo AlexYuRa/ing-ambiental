@@ -35,6 +35,10 @@ export default function Laboratorios() {
                 </h3>
               </div>
 
+              {lab.descripcion && (
+                <p className="text-sm text-gray-600 leading-relaxed">{lab.descripcion}</p>
+              )}
+
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <span className="flex items-center gap-1.5 text-gray-600">
                   <MapPin className="w-4 h-4 text-gold shrink-0" /> {lab.ubicacion}
